@@ -5,10 +5,8 @@ const api = (function(){
   
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/sean-sam';
 
-  const getItems = function(){
-    $.getJSON(`${BASE_URL}/items`, data => {
-      console.log(data);
-    });
+  const getItems = function(callback){
+    $.getJSON(`${BASE_URL}/items`, callback);
   };
 
   const createItem = function(name, callback){
