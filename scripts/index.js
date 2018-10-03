@@ -11,10 +11,18 @@ $(document).ready(function() {
   });
 });
 
+api.getItems((items) => {
+  const item = items[0];
+  api.updateItem(item.id, { name: 'foobar', checked : 'aasdf' }, () => {
+    console.log('updated!');
+  });
+});
 
+/*
 api.createItem('bear', (newItem) => {
   console.log(newItem);
   //api.getItems((items) => {
-   // console.log(items);
+  // console.log(items);
   //});
 });
+*/
