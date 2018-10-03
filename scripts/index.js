@@ -1,4 +1,6 @@
+'use strict';
 /* global shoppingList, store */
+/*eslint-env jquery*/
 
 $(document).ready(function() {
   shoppingList.bindEventListeners();
@@ -6,3 +8,4 @@ $(document).ready(function() {
 });
 
 store.items.push(Item.create('apples'));
+
