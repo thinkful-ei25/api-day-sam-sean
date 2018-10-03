@@ -18,6 +18,16 @@ button:hover:disabled {
   cursor: default;
 }
 
+.error-popup { 
+  color : red;
+  text-align: center; 
+  display: inline-block; 
+  border : solid 1px black; 
+  width: 30%;
+  height: 80px; 
+  font-size: 10px; 
+
+}
 .hidden {
   display: none;
 }

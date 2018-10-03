@@ -55,7 +55,7 @@ const shoppingList = (function(){
     
     if (store.error){
       $('.error-popup').removeClass('hidden');
-      $('.error-popup-text').html(`<p>${store.error}<p>`);
+      $('.error-popup-text').append(`<p>${store.error}<p>`);
     } else {
       $('.error-popup').addClass('hidden');
     }
@@ -131,6 +131,9 @@ const shoppingList = (function(){
         store.findAndUpdate(id, newObj);
         store.setItemIsEditing(id, false);
         render();
+      }, function(){ 
+        store.error = 'when updating this item you forgot to put text in :p'; 
+        render(); 
       });
       
       //store.findAndUpdateName(id, itemName);

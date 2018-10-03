@@ -38,7 +38,7 @@ const api = (function(){
 
   }; 
 
-  const updateItem = function(id, updateData, callback){
+  const updateItem = function(id, updateData, callbackSuccess, callbackFail ){
     updateData = JSON.stringify(updateData);
     $.ajax(
       {
@@ -47,7 +47,8 @@ const api = (function(){
         dataType : 'json',
         contentType : 'application/json',
         data :  updateData,
-        success : callback 
+        success : callbackSuccess, 
+        error : callbackFail
       }
     );
   };
