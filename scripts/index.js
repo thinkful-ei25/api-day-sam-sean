@@ -9,8 +9,11 @@ $(document).ready(function() {
 
 store.items.push(Item.create('apples'));
 
-api.getItems(function(data) {
-  console.log(data);
+api.createItem('bear', (newItem) => {
+  console.log(newItem);
+  api.getItems((items) => {
+    console.log(items);
+  });
 });
 
 console.log(api.BASE_URL);

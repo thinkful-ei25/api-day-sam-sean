@@ -7,13 +7,28 @@ const api = (function(){
 
   const getItems = function(){
     $.getJSON(`${BASE_URL}/items`, data => {
-      // console.log(data);
+      console.log(data);
     });
   };
 
-  return {
-    getItems
-  };
+  const createItem = function(name, callback){
+    const newItem = JSON.stringify({name : name});
+    $.ajax(
+      {
+        url : `${BASE_URL}/items`,
+        method : 'POST', 
+        dataType : 'json',
+        contentType : 'application/json',
+        data : newItem, 
+        success : callback 
+      }
+    ); 
+    // JSON.stringify(newItem);  
+  }; 
 
+  return {
+    getItems, 
+    createItem
+  };
 }());
 
