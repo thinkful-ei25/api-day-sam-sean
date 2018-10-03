@@ -1,5 +1,6 @@
 /* global store, $, api*/
 'use strict'; 
+/*eslint-env jquery*/
 // eslint-disable-next-line no-unused-vars
 const shoppingList = (function(){
 
@@ -51,7 +52,14 @@ const shoppingList = (function(){
     if (store.searchTerm) {
       items = store.items.filter(item => item.name.includes(store.searchTerm));
     }
-  
+    
+    if (store.error){
+      $('.error-popup').removeClass('hidden');
+      $('.error-popup-text').html(`<p>${store.error}<p>`);
+    } else {
+      $('.error-popup').addClass('hidden');
+    }
+
     // render the shopping list in the DOM
     console.log('`render` ran');
     const shoppingListItemsString = generateShoppingItemsString(items);
@@ -68,11 +76,14 @@ const shoppingList = (function(){
       $('.js-shopping-list-entry').val('');
 
       api.createItem(newItemName, (item) => { 
-        store.addItem(item); 
+        store.addItem(item);
+        store.error = ''; 
         render(); 
-      }); 
-      // store.addItem(newItemName);
-      // render();
+      }, function(){
+        store.error = 'Added a new item with no input value';
+        render();
+      }
+      );
     });
   }
   

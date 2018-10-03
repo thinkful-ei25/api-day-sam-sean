@@ -9,7 +9,7 @@ const api = (function(){
     $.getJSON(`${BASE_URL}/items`, callback);
   };
 
-  const createItem = function(name, callback){
+  const createItem = function(name, callbackSuccess, callbackFail){
     const newItem = JSON.stringify({name : name});
     $.ajax(
       {
@@ -18,7 +18,8 @@ const api = (function(){
         dataType : 'json',
         contentType : 'application/json',
         data : newItem, 
-        success : callback 
+        success : callbackSuccess,
+        error: callbackFail 
       }
     ); 
     // JSON.stringify(newItem);  
@@ -31,7 +32,7 @@ const api = (function(){
         method : 'DELETE', 
         dataType : 'json',
         contentType : 'application/json',
-        success : callback 
+        success : callback
       }
     ); 
 
