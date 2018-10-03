@@ -24,6 +24,19 @@ const api = (function(){
     // JSON.stringify(newItem);  
   }; 
 
+  const deleteItem = function(id, callback){ 
+    $.ajax(
+      {
+        url : `${BASE_URL}/items/${id}`,
+        method : 'DELETE', 
+        dataType : 'json',
+        contentType : 'application/json',
+        success : callback 
+      }
+    ); 
+
+  }; 
+
   const updateItem = function(id, updateData, callback){
     updateData = JSON.stringify(updateData);
     $.ajax(
@@ -41,7 +54,8 @@ const api = (function(){
   return {
     getItems, 
     createItem,
-    updateItem
+    updateItem, 
+    deleteItem
   };
 }());
 

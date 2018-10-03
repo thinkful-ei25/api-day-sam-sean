@@ -15,18 +15,17 @@ const store = (function(){
 
   const findAndUpdate = function(id, newData){ 
     const item = this.findById(id); 
-    console.log('yo yo: ' + item); 
     Object.assign(item, newData); 
-
   }; 
+  
+  const findAndDelete = function(id) {
+    this.items = this.items.filter(item => item.id !== id);
+  };
+
   // const findAndToggleChecked = function(id) {
   //   const item = this.findById(id);
   //   item.checked = !item.checked;
   // };
-
-  const findAndDelete = function(id) {
-    this.items = this.items.filter(item => item.id !== id);
-  };
 
   // const findAndUpdateName = function(id, name) {
   //   try {
