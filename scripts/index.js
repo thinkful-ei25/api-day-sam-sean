@@ -11,10 +11,9 @@ $(document).ready(function() {
   });
 });
 
-
-api.createItem('bear', (newItem) => {
-  console.log(newItem);
-  //api.getItems((items) => {
-   // console.log(items);
-  //});
-});
+// api.createItem('bear', (newItem) => {
+//   console.log(newItem);
+//   //api.getItems((items) => {
+//    // console.log(items);
+//   //});
+// });
