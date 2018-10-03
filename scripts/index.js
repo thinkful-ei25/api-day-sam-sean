@@ -11,14 +11,15 @@ $(document).ready(function() {
   });
 });
 
-api.getItems((items) => {
+
+
+/* api.getItems((items) => {
   const item = items[0];
-  api.updateItem(item.id, { name: 'foobar', checked : 'aasdf' }, () => {
+  api.updateItem(item.id, { name: 'foobar'}, () => {
     console.log('updated!');
   });
 });
 
-/*
 api.createItem('bear', (newItem) => {
   console.log(newItem);
   //api.getItems((items) => {
